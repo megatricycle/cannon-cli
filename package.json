@@ -1,6 +1,6 @@
 {
   "name": "cannon-cli",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "CLI for react-cannon boilerplate",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "clean:actions": "mkdir src/actions",
     "clean:components": "mkdir src/components"
   },
-  "author": "",
+  "author": "Peter Rupa (pbmrupa@gmail.com)",
   "license": "ISC",
   "dependencies": {
     "chalk": "^1.1.3",
