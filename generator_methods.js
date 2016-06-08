@@ -15,9 +15,7 @@ exports.component = function (name) {
                 })
                 .then(function(body) {
                     // write file
-                    fs.writeFile(
-                        js_path,
-                        body);
+                    fs.writeFile(js_path, body);
                 });
 
             // write scss
@@ -31,9 +29,7 @@ exports.component = function (name) {
                 })
                 .then(function(body) {
                     // write file
-                    fs.writeFile(
-                        test_path,
-                        body);
+                    fs.writeFile(test_path, body);
                 });
         });
 }
@@ -53,18 +49,14 @@ exports.action = function (name) {
                 })
                 .then(function(body) {
                     // write file
-                    fs.writeFile(
-                        actions_path,
-                        body);
+                    fs.writeFile(actions_path, body);
                 });
 
             // write types
             fs.readFile('templates/action/actionTypes.js', 'utf8')
                 .then(function(body) {
                     // write file
-                    fs.writeFile(
-                        types_path,
-                        body);
+                    fs.writeFile(types_path, body);
                 });
 
             // write test
@@ -75,9 +67,7 @@ exports.action = function (name) {
                 })
                 .then(function(body) {
                     // write file
-                    fs.writeFile(
-                        test_path,
-                        body);
+                    fs.writeFile(test_path, body);
                 });
         });
 }
