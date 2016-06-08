@@ -4,7 +4,11 @@
   "description": "CLI for react-cannon boilerplate",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preclean": "rimraf src && mkdir src",
+    "clean": "npm run clean:actions & npm run clean:components",
+    "clean:actions": "mkdir src/actions",
+    "clean:components": "mkdir src/components"
   },
   "author": "",
   "license": "ISC",
@@ -13,5 +17,8 @@
     "change-case": "^2.3.1",
     "fs-promise": "^0.5.0",
     "yargs": "^4.7.1"
+  },
+  "devDependencies": {
+    "rimraf": "^2.5.2"
   }
 }
