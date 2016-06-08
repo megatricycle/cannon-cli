@@ -8,7 +8,7 @@ exports.component = function (name) {
     fs.mkdir('src/components/' + name)
         .then(function() {
             // write js
-            fs.readFile('templates/component/component.js', 'utf8')
+            fs.readFile(__dirname + '/templates/component/component.js', 'utf8')
                 .then(function(body) {
                     // transform ${name}
                     return Promise.resolve(body.replace(/\${name}/g, name));
@@ -22,7 +22,7 @@ exports.component = function (name) {
             fs.writeFile(scss_path, '');
 
             // write test
-            fs.readFile('templates/component/component.spec.js', 'utf8')
+            fs.readFile(__dirname + '/templates/component/component.spec.js', 'utf8')
                 .then(function(body) {
                     // transform ${name}
                     return Promise.resolve(body.replace(/\${name}/g, name));
@@ -42,7 +42,7 @@ exports.action = function (name) {
     fs.mkdir('src/actions/' + name + 'Actions')
         .then(function() {
             // write actions
-            fs.readFile('templates/action/actions.js', 'utf8')
+            fs.readFile(__dirname + '/templates/action/actions.js', 'utf8')
                 .then(function(body) {
                     // transform ${name}
                     return Promise.resolve(body.replace(/\${name}/g, name));
@@ -53,14 +53,14 @@ exports.action = function (name) {
                 });
 
             // write types
-            fs.readFile('templates/action/actionTypes.js', 'utf8')
+            fs.readFile(__dirname + '/templates/action/actionTypes.js', 'utf8')
                 .then(function(body) {
                     // write file
                     fs.writeFile(types_path, body);
                 });
 
             // write test
-            fs.readFile('templates/action/actions.spec.js', 'utf8')
+            fs.readFile(__dirname + '/templates/action/actions.spec.js', 'utf8')
                 .then(function(body) {
                     // transform ${name}
                     return Promise.resolve(body.replace(/\${name}/g, name));
