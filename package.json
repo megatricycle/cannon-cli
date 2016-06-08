@@ -1,14 +1,15 @@
 {
   "name": "cannon-cli",
-  "version": "0.1.2",
+  "version": "0.2.2",
   "description": "CLI for react-cannon boilerplate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preclean": "rimraf src && mkdir src",
-    "clean": "npm run clean:actions & npm run clean:components",
+    "clean": "npm run clean:actions & npm run clean:components & npm run clean:reducers",
     "clean:actions": "mkdir src/actions",
-    "clean:components": "mkdir src/components"
+    "clean:components": "mkdir src/components",
+    "clean:reducers": "mkdir src/reducers"
   },
   "author": "Peter Rupa (pbmrupa@gmail.com)",
   "license": "ISC",

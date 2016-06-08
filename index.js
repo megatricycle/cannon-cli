@@ -3,7 +3,7 @@ var generator = require('./generator.js');
 
 var argv = require('yargs')
     .usage('Usage: $0 --type [type] [name]')
-    .choices('type', ['action', 'component'])
+    .choices('type', ['action', 'component', 'reducer'])
     .demand(['type'])
     .demand(1)
     .argv,

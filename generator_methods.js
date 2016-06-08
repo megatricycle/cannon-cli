@@ -32,7 +32,7 @@ exports.component = function (name) {
                     fs.writeFile(test_path, body);
                 });
         });
-}
+};
 
 exports.action = function (name) {
     var actions_path = 'src/actions/' + name + 'Actions/' + name + 'Actions.js',
@@ -70,4 +70,46 @@ exports.action = function (name) {
                     fs.writeFile(test_path, body);
                 });
         });
-}
+};
+
+exports.reducer = function (name) {
+    var reducer_path = 'src/reducers/' + name + 'Reducer/' + name + 'Reducer.js',
+        initial_state_path = 'src/reducers/' + name + 'Reducer/initialState.js',
+        test_path = 'src/reducers/' + name + 'Reducer/' + name + 'Reducer.spec.js';
+
+    fs.mkdir('src/reducers/' + name + 'Reducer')
+        .then(function() {
+            // write reducer
+            fs.readFile(__dirname + '/templates/reducer/reducer.js', 'utf8')
+                .then(function(body) {
+                    // transform ${name}
+                    return Promise.resolve(body.replace(/\${name}/g, name));
+                })
+                .then(function(body) {
+                    // write file
+                    fs.writeFile(reducer_path, body);
+                });
+
+            // write initial state
+            fs.readFile(__dirname + '/templates/reducer/initialState.js', 'utf8')
+                .then(function(body) {
+                    // transform ${name}
+                    return Promise.resolve(body.replace(/\${name}/g, name));
+                })
+                .then(function(body) {
+                    // write file
+                    fs.writeFile(initial_state_path, body);
+                });
+
+            // write test
+            fs.readFile(__dirname + '/templates/reducer/reducer.spec.js', 'utf8')
+                .then(function(body) {
+                    // transform ${name}
+                    return Promise.resolve(body.replace(/\${name}/g, name));
+                })
+                .then(function(body) {
+                    // write file
+                    fs.writeFile(test_path, body);
+                });
+        });
+};

@@ -17,6 +17,14 @@ module.exports = function(type, name) {
             createAction(converted_name);
 
             break;
+
+        case 'reducer':
+            var converted_name = changeCase.camelCase(name);
+
+            createAction(converted_name);
+            createReducer(converted_name);
+
+            break;
         default:
     }
 }
@@ -35,4 +43,13 @@ function createAction(name) {
     console.log(chalk.green('Generated src/actions/' + name + 'Actions/' + name + 'Actions.js'));
     console.log(chalk.green('Generated src/actions/' + name + 'Actions/' + name + 'ActionTypes.js'));
     console.log(chalk.green('Generated src/actions/' + name + 'Actions/' + name + 'Actions.spec.js'));
+}
+
+function createReducer(name) {
+    create.reducer(name);
+
+    console.log(chalk.green('Generated src/reducers/' + name + 'Reducer/' + name + 'Reducer.js'));
+    console.log(chalk.green('Generated src/reducers/' + name + 'Reducer/' + name + 'Reducer.spec.js'));
+    console.log(chalk.green('Generated src/reducers/' + name + 'Reducer/initialState.js'));
+    console.log(chalk.yellow('Don\'t forget to add ' + name + 'Reducer to your root reducer at src/reducers/index.js!'));
 }
